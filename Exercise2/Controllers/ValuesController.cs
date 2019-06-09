@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Exercise2.Models;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace Exercise2.Controllers
@@ -18,12 +16,19 @@ namespace Exercise2.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            return "value";
+            return string.Format("Selected Id is {0}", id);
         }
 
+        //// POST api/values
+        //public void Post([FromBody]Student value)
+        //{
+        //    System.Diagnostics.Debug.WriteLine(string.Format("{0}:{1}", value.name, value.age));
+        //}
+
         // POST api/values
-        public void Post([FromBody]string value)
+        public void Post([FromUri]Student value)
         {
+            System.Diagnostics.Debug.WriteLine(string.Format("{0}:{1}", value.name, value.age));
         }
 
         // PUT api/values/5

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using MyWebApi.Models;
+using System;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace MyWebApi.Controllers
@@ -14,12 +16,20 @@ namespace MyWebApi.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            return "value";
+            return string.Format("Selected Id is {0}", id);
         }
 
         // POST api/values
         public void Post([FromBody]string value)
         {
+            System.Diagnostics.Debug.WriteLine(value);
+        }
+        
+
+        // POST api/values
+        public void Post([FromBody]Student value)
+        {
+            System.Diagnostics.Debug.WriteLine(value);
         }
 
         // PUT api/values/5
