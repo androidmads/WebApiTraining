@@ -10,7 +10,7 @@ namespace Exercise2.Controllers
 {
     public class StudentsController : ApiController
     {
-        [HttpPost]
+        [HttpGet]
         [ActionName("GetStudent")]
         public Student GetStudent([FromUri]Student value)
         {
