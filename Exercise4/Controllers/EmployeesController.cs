@@ -5,10 +5,18 @@ using Exercise4.Database;
 
 namespace Exercise4.Controllers
 {
+    /// <summary>
+    /// Provides Employee details
+    /// </summary>
     public class EmployeesController : ApiController
     {
         MyEntities entities = new MyEntities();
 
+        /// <summary>
+        /// Returns all employee details
+        /// </summary>
+        /// api/employees/getallemployees
+        /// <returns></returns>
         [HttpGet]
         [ActionName("GetAllEmployees")]
         public List<Employee> GetEmployees()
@@ -16,6 +24,12 @@ namespace Exercise4.Controllers
             return entities.Employees.ToList();
         }
 
+        /// <summary>
+        /// Returns employee details based on the employee id
+        /// </summary>
+        /// <param name="id">employee id</param>
+        /// api/employees/getemployee/1
+        /// <returns></returns>
         [HttpGet]
         [ActionName("GetEmployee")]
         public Employee GetEmployee(int id)
